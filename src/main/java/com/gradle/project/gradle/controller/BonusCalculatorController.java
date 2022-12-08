@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +36,7 @@ public class BonusCalculatorController {
 	}
 	
 	
-	@PostMapping("/tci/employee/eligibility")
+	@GetMapping("/tci/employee/eligibility")
 	ResponseEntity<Object> getEligibleEmployee() {
 		Map<String, List<EmployeeDto>> response =bonusCalculatorService.getEligibleEmployee();
 		return ResponseHandler.response(response, "","Data Fetched Successfully");
